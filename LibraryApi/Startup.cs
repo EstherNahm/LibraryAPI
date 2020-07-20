@@ -35,12 +35,13 @@ namespace LibraryApi
                     options.JsonSerializerOptions.IgnoreNullValues = true;
                 });
 
+            //every time a class is created, it will create a brandnew instance of SystemTime
             services.AddTransient<ISystemTime, SystemTime>();
 
             services.AddDbContext<LibraryDataContext>(options =>
 
                 options.UseSqlServer(Configuration.GetConnectionString("LibraryDatabase"))
-            ) ;
+            );
 
             services.AddSwaggerGen(c =>
             {
