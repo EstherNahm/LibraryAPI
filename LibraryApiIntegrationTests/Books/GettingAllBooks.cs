@@ -38,7 +38,7 @@ namespace LibraryApiIntegrationTests.Books
             var response = await _client.GetAsync("/books");
             var content = await response.Content.ReadAsAsync<GetBooksResponse>();
 
-            Assert.Equal(6, content.numberOfBooks);
+            Assert.Equal(2, content.numberOfBooks);
             Assert.Null(content.genreFilter);
         }
     }
